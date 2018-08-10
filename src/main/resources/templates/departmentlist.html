@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>List Of Department</title>
+
+
+</head>
+<body>
+<form action="#" th:action="@{/allemployee}"  th:object="${employees}"  method="post">
+    <div th:replace="base :: nav"></div>
+    <div class="container" >
+
+        <table class="table table-striped">
+            <tr>
+                <td colspan="5">
+                    <h1 align="center">List of all Department</h1>
+                </td>
+            </tr>
+            <!--<tr>-->
+                <!--<td  colspan="5">-->
+                    <!--<table align="left">-->
+                         <!--<tr >-->
+                            <!--<td>-->
+                                <!--Search Name :-->
+                            <!--</td>-->
+                            <!--<td>-->
+                                <!--<select  id="searchdepartment"  name="searchdepartment"   >-->
+                                    <!--<option value="">Select Department</option>-->
+                                    <!--<option th:each="department : ${departments}" th:value="${department.id}" th:text="${department.name}"></option>-->
+
+                                <!--</select>-->
+
+                            <!--</td>-->
+                            <!--<td width="10px"></td>-->
+                            <!--<td th:text="department : ${departments}">-->
+
+                                <!--&lt;!&ndash;<input class="btn btn-primary btn-lg" type="submit" value="Submit" />&ndash;&gt;-->
+                                <!--<a th:href="@{/detailnew/{id}(id=${department.id})}">Show Employee That work in Department</a>-->
+
+                            <!--</td>-->
+                        <!--</tr>-->
+                    <!--</table>-->
+
+                <!--</td>-->
+            <!--</tr>-->
+
+            <tr>
+            <tr>
+
+            <th>Id</th>
+            <th>Department Name</th>
+            <td></td>
+            <td></td>
+
+
+            </tr>
+
+
+
+            <tr th:each="department : ${departments}">
+
+                <td>  <span th:text="${department.id}"></span><br/></td>
+                <td>  <span th:text="${department.name}"></span><br/></td>
+                <td colspan="2"> <a th:href="@{/detailnew/{id}(id=${department.id})}">Show Employee That work in Department</a></td>
+            </tr>
+
+
+        </table>
+    </div>
+</form>
+</body>
+</html>
